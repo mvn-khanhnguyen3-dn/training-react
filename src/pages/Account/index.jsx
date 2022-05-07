@@ -1,9 +1,7 @@
 import React from 'react'
 import useAuth from '../../hooks/useAuth'
-import {useHistory} from 'react-router-dom'
 
 export default function Account() {
-  let history = useHistory();
   let {logout} = useAuth();
   return (
    <>
