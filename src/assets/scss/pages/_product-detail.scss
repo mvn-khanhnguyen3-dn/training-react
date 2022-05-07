@@ -1,0 +1,30 @@
+.product-detail{
+  margin: 0 auto;
+  list-style: none;
+  .product-left{
+    width: 100%;
+    .product-catalog{
+      text-transform: capitalize;
+      font-size: 18px;
+      text-align: left;
+    }
+    .product-img{
+      width: 250px;
+      height: 250px;
+    }
+  }
+  .product-right{
+    line-height: 50px;
+    .product-title{
+      font-size: 22px;
+      font-weight: 600;
+    }
+    .product-desc{
+      text-align: justify;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: capitalize;
+      width: 80%;
+    }
+  }
+}

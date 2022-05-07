@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{ Suspense } from "react";
+import { Switch, Route } from "react-router-dom";
+import "./App.css";
+import { Header, Footer ,Blog } from "./components/layouts";
+import Account from './pages/Account'
+import Login from "./pages/Auth/Login";
+import PrivateRouter from './core/guards/PrivateRouter'
+const Feature  = React.lazy(()=> import("./pages/Features") )
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Header />
+      <Switch>
+        <PrivateRouter path="/account">
+          <Account />
+        </PrivateRouter>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/">
+          <Feature/>
+        </Route>
+      </Switch>
+      <Blog/>
+      <Footer />
+      </Suspense>
+    </>
   );
 }
 
